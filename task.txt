@@ -1,0 +1,39 @@
+PRD: Update stock plugin
+
+What is the plugin?
+Simple plugin that will allow the uploading of an XML file and updating of the products on the
+website accordingly to it(in or out of stock).
+
+Backend:
+1. Plugin install
+a. Adds an option and a page to the admin menu &quot;Update Stock&quot; and &quot;Logs&quot;
+2. Plugin uninstall – full deletion of the plugin and uploaded XML&#39;s without changing any part
+of the system.
+3. On Update Stock page:
+a. Allow to upload XML file
+b. Check nonce(for security) and check if user have permissions for that page(only
+administrator)
+c. Check if rows and xml are in correct format:
+i. First row – row id(integer)
+ii. Second row – product sku(string)
+iii. Third row – in stock/out of stock(integer 0/1) 0 = no, 1 = yes.
+d. Update product accordingly to the uploaded XML file:
+i. Find product by it&#39;s SKU (second row in XML)
+ii. Update stock(third row in xml).
+iii. Remove the XML file after updating is done.
+iv. Log the updated products:
+1. Log updating date
+2. Log the total amount of product updated in that date
+
+4. On Logs page:
+a. Show in each row:
+i. Updating date
+ii. Total amount of products updated in that specific date.
+
+Front end:
+5. Hide products without stock.
+
+General:
+- Use only best WordPress practices
+- Use nonce, escape, esc, if user can/allow and so on for security measures.
+- Readable code, comments in correct places.
